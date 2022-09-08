@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    background-color: var(--gray-700);
+    align-items: center;
+    padding-top: 4.5rem;
+    padding-bottom: 5rem;
+    gap: 0.7rem;
+    justify-content: center;
+}
+
+.imgLogo {
+    height: 2.25rem;
+}
+
+.imgText {
+    height: 3rem;
+}
