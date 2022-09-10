@@ -2,20 +2,24 @@ import { useState } from 'react';
 import './global.css';
 import styles from './App.module.css';
 import { Header } from './components/Header';
+import { PlusCircle } from 'phosphor-react';
+import { TaskList } from './components/Tasklist';
 
 export function App() {
 
   return (
     <div>
       <Header />
-      <div>
-        <form action="">
+      <main className={styles.wrapper}>
+        <form action="" className={styles.addTaskForm}>
           <input type="text" placeholder='Adicione uma nova tarefa' />
-          <div>
-            <p>Criar</p>
-          </div>
+          <button type='submit'>
+            Criar
+            <PlusCircle />
+          </button>
         </form>
-      </div>
+        <TaskList />
+      </main>
     </div>
   );
 }

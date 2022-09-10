@@ -1,0 +1,26 @@
+.headerTasks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.bodyTask {
+    margin-top: 4rem;
+}
+
+.noTask {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noTask span {
+    display: block;
+}
+
+.noTask img {
+    height: 56px;
+}
+

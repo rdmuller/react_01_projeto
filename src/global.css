@@ -13,6 +13,11 @@
     --blue-dark: #1E6F9F;
 }
 
+:focus {
+    outline: transparent;
+    box-shadow: 0 0 0 1px var(--puple-dark);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -25,4 +30,6 @@ body {
 
 body, input, button {
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
 }
