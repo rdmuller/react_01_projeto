@@ -14,13 +14,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid var(--gray-400);
+    border-radius: 8px;    
 }
 
 .noTask span {
     display: block;
+    color: var(--gray-300);
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
 .noTask img {
     height: 56px;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
 }
 

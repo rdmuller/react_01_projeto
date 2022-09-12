@@ -1,15 +1,21 @@
 import { Score } from '../Score';
 import styles from './TaskList.module.css';
 import clipboard from '../../assets/clipboard.svg';
+import { Task } from '../Task';
 
 function WithoutTaskView() {
-    return (
-        <div className={styles.noTask}>
-            <img src={clipboard} />
-            <span>Você ainda não tem tarefas cadastradas</span>
-            <span>Crie tarefas e organize seus itens a fazer</span>
-        </div>
-    )
+    if (2 === 1) {
+        return (
+            <div className={styles.noTask}>
+                <img src={clipboard} />
+                <span><strong>Você ainda não tem tarefas cadastradas</strong></span>
+                <span>Crie tarefas e organize seus itens a fazer</span>
+            </div>
+        );
+    }
+    else {
+        return <></>;
+    }
 }
 
 export function TaskList() {
@@ -21,6 +27,12 @@ export function TaskList() {
             </header>
             <main>
                 <WithoutTaskView />
+                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
+                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
+                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
+                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
+                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
+                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
             </main>
         </div>
     )
