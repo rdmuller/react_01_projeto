@@ -10,9 +10,65 @@
     margin-bottom: 0.75rem;
 }
 
-.taskContent p {
+.taskContent label {
     font-size: 0.875rem;
     line-height: 1.4;
     color: var(--gray-100);
     display: block;
+}
+
+.taskContent button {
+    background-color: transparent;
+    color: var(--gray-300);
+    border: 0;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+    line-height: 1.7;
+    border-radius: 4px;
+    transition-duration: 0.1s;
+    transition-property: background-color, color;
+}
+
+.taskContent button:hover {
+    background-color: var(--gray-400);
+    color: var(--danger);
+    transition-duration: 0.1s;
+    transition-property: background-color, color;
+}
+
+.roundedCheckBox {
+    border: 1px solid var(--blue);
+    background-color: transparent;
+    color: var(--gray-100);
+    border-radius: 50%;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    appearance: none;
+    outline: none;
+    transition-duration: 0.1s;
+    transition-property: background-color, opacity;
+}
+
+.roundedCheckBox:checked {
+    background-color: var(--purple-dark);
+    border: 1px solid var(--purple-dark);
+    transition-duration: 0.1s;
+    transition-property: background-color, opacity;
+}
+
+.roundedCheckBox:checked:hover {
+    background-color: var(--purple);;
+    border: 1px solid var(--purple);
+    transition-duration: 0.1s;
+    transition-property: background-color, opacity;
+}
+
+.roundedCheckBox:hover {
+    background: var(--blue-dark);
+    opacity: 0.2;
+    transition-duration: 0.1s;
+    transition-property: background-color, opacity;
 }

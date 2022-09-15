@@ -3,8 +3,8 @@ import styles from './TaskList.module.css';
 import clipboard from '../../assets/clipboard.svg';
 import { Task } from '../Task';
 
-function WithoutTaskView() {
-    if (2 === 1) {
+function WithoutTaskView({taskCount} : {taskCount: number}) {
+    if (taskCount === 0) {
         return (
             <div className={styles.noTask}>
                 <img src={clipboard} />
@@ -13,26 +13,38 @@ function WithoutTaskView() {
             </div>
         );
     }
-    else {
-        return <></>;
-    }
+    else return <></>;
 }
 
-export function TaskList() {
+type TaskToDo = {
+    id: string;
+    task: string;
+    finished?: boolean;
+}
+ 
+
+export function TaskList<TaskToDo>({tasks} : {tasks: TaskToDo[]}) {
+    const taskCount = tasks.length;
+    const pendingTasks = tasks.filter(value => { 
+        return value.finished != true 
+    });
+
+    console.log(pendingTasks);
+
     return (
         <div className={styles.bodyTask}>
             <header className={styles.headerTasks}>
-                <Score title="Tarefas criadas" color="blue" score={0} />
+                <Score title="Tarefas criadas" color="blue" score={taskCount} />
                 <Score title="Concluídas" color="purple" score={0} />
             </header>
             <main>
-                <WithoutTaskView />
-                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
-                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
-                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
-                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
-                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
-                <Task title='O Fabuloso Gerador de Lero-lero v2.0 é capaz de gerar qualquer quantidade de texto vazio e prolixo, ideal para engrossar uma tese de mestrado' />
+                <WithoutTaskView taskCount={taskCount} />
+                {pendingTasks.map(task => {
+                    return (
+                        <Task 
+                            title={task.task} 
+                        />);
+                })}
             </main>
         </div>
     )
