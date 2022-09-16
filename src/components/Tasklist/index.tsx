@@ -16,7 +16,7 @@ function WithoutTaskView({taskCount} : {taskCount: number}) {
     else return <></>;
 }
 
-type TaskToDo = {
+export type TaskToDo = {
     id: string;
     task: string;
     finished?: boolean;
@@ -25,6 +25,9 @@ type TaskToDo = {
 
 export function TaskList<TaskToDo>({tasks} : {tasks: TaskToDo[]}) {
     const taskCount = tasks.length;
+
+    const taskFinishedCount = tasks.reduce((sum, task) => sum + (task.finished ? 1 : 0), 0);
+
     const pendingTasks = tasks.filter(value => { 
         return value.finished != true 
     });
@@ -35,7 +38,7 @@ export function TaskList<TaskToDo>({tasks} : {tasks: TaskToDo[]}) {
         <div className={styles.bodyTask}>
             <header className={styles.headerTasks}>
                 <Score title="Tarefas criadas" color="blue" score={taskCount} />
-                <Score title="Concluídas" color="purple" score={0} />
+                <Score title="Concluídas" color="purple" score={taskFinishedCount} />
             </header>
             <main>
                 <WithoutTaskView taskCount={taskCount} />

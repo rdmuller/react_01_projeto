@@ -3,15 +3,8 @@ import './global.css';
 import styles from './App.module.css';
 import { Header } from './components/Header';
 import { PlusCircle } from 'phosphor-react';
-import { TaskList } from './components/Tasklist';
-import { Guid } from 'guid-typescript'
-
-type TaskToDo = {
-  id: string;
-  task: string;
-  finished?: boolean;
-}
-
+import { TaskList, TaskToDo } from './components/Tasklist';
+import { Guid } from 'guid-typescript';
 
 export function App() {
   const [newTaskText, setNewTaskText] = useState('');
