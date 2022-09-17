@@ -21,6 +21,25 @@ export function App() {
     setNewTaskText('');
   }
 
+  function deleteTask (idToDelete: string) {
+    const newTaskList = tasks.filter(task => {
+      return task.id != idToDelete
+    });
+
+    setTasks(newTaskList)
+  }
+
+  function setTaskStatus(id: string, status: boolean) {
+    const newTaskList = tasks.map((task => {
+      if (task.id === id) {
+        task.finished = status;
+      }
+      return task;
+    }));
+    
+    setTasks(newTaskList);
+  }
+
   const isNewTaskEmpty = newTaskText.length === 0;
 
   return (
@@ -41,7 +60,7 @@ export function App() {
             <PlusCircle />
           </button>
         </form>
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} onDeleteTask={deleteTask} setTaskStatus={setTaskStatus} />
       </main>
     </div>
   );

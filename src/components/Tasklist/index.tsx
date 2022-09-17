@@ -22,14 +22,18 @@ export type TaskToDo = {
     finished?: boolean;
 }
  
-
-export function TaskList<TaskToDo>({tasks} : {tasks: TaskToDo[]}) {
+export function TaskList({tasks, onDeleteTask, setTaskStatus} : {tasks: TaskToDo[], onDeleteTask: Function, setTaskStatus: Function}) {    
     const taskCount = tasks.length;
 
+    // sei que a linha abaixo poderia ser pendingTasks.length, o reduce foi para praticar
     const taskFinishedCount = tasks.reduce((sum, task) => sum + (task.finished ? 1 : 0), 0);
 
     const pendingTasks = tasks.filter(value => { 
         return value.finished != true 
+    });
+
+    const finishedTasks = tasks.filter(value => { 
+        return value.finished === true 
     });
 
     console.log(pendingTasks);
@@ -45,7 +49,18 @@ export function TaskList<TaskToDo>({tasks} : {tasks: TaskToDo[]}) {
                 {pendingTasks.map(task => {
                     return (
                         <Task 
-                            title={task.task} 
+                            task={task} 
+                            onDelete={onDeleteTask}
+                            setStatus={setTaskStatus}
+                        />);
+                })}
+
+                {finishedTasks.map(task => {
+                    return (
+                        <Task 
+                            task={task} 
+                            onDelete={onDeleteTask}
+                            setStatus={setTaskStatus}
                         />);
                 })}
             </main>
