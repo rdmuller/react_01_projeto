@@ -16,6 +16,7 @@
     font-size: 0.875rem;
     line-height: 1.4;
     display: block;
+    cursor: pointer;
 }
 
 .taskTile {
@@ -23,6 +24,7 @@
     line-height: 1.4;
     color: var(--gray-100);
     display: block;
+    cursor: pointer;
 }
 
 .taskContent button {

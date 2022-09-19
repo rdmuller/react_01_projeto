@@ -34,9 +34,10 @@ export function App() {
       if (task.id === id) {
         task.finished = status;
       }
+      
       return task;
     }));
-    
+
     setTasks(newTaskList);
   }
 

@@ -36,8 +36,6 @@ export function TaskList({tasks, onDeleteTask, setTaskStatus} : {tasks: TaskToDo
         return value.finished === true 
     });
 
-    console.log(pendingTasks);
-
     return (
         <div className={styles.bodyTask}>
             <header className={styles.headerTasks}>
@@ -49,6 +47,7 @@ export function TaskList({tasks, onDeleteTask, setTaskStatus} : {tasks: TaskToDo
                 {pendingTasks.map(task => {
                     return (
                         <Task 
+                            key={task.id}
                             task={task} 
                             onDelete={onDeleteTask}
                             setStatus={setTaskStatus}
@@ -58,6 +57,7 @@ export function TaskList({tasks, onDeleteTask, setTaskStatus} : {tasks: TaskToDo
                 {finishedTasks.map(task => {
                     return (
                         <Task 
+                            key={task.id}
                             task={task} 
                             onDelete={onDeleteTask}
                             setStatus={setTaskStatus}

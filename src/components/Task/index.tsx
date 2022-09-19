@@ -18,14 +18,13 @@ export function Task({task, onDelete, setStatus} : {task: TaskToDo, onDelete: Fu
         <div className={styles.taskContent}>
             <input 
                 type="checkbox" 
-                name="checkFinished" 
-                id="" 
+                id={"checkFinished" + task.id}
                 className={styles.roundedCheckBox}
                 onChange={handleSetStatus}
                 checked={task.finished}
             />
 
-            <label htmlFor="checkFinished" className={(task.finished) ? styles.taskTileFinished : styles.taskTile}>{task.task}</label>
+            <label htmlFor={"checkFinished" + task.id} className={(task.finished) ? styles.taskTileFinished : styles.taskTile}>{task.task}</label>
 
             <button onClick={handleDeleteTask} title='Exluir tarefa'>
                 <Trash size={14}/>
